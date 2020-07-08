@@ -2,7 +2,7 @@ import MovingObject from "./moving-object.js";
 
 class Paddle extends MovingObject {
   constructor() {
-    super(20, 60);
+    super(20, 80);
     this.time = 0;
   }
 

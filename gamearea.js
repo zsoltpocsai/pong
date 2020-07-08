@@ -31,9 +31,9 @@ class GameArea {
       y: (height / 2) - this.paddle2.height / 2
     };
 
-    this.paddle1.MAXSPEED = height / 60;
-    this.paddle2.MAXSPEED = height / 60;
-    this.ball.MAXSPEED = (width + height) / 130;
+    this.paddle1.MAXSPEED = height / 100;
+    this.paddle2.MAXSPEED = height / 100;
+    this.ball.MAXSPEED = (width + height) / 180;
     
     for (let i = 0; i < 2; i++) {
       let sideWall = this.sideWalls[i];
