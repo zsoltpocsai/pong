@@ -14,32 +14,42 @@ const game = new Game();
 
 var animationRequestID = 0;
 var inGameplay = false;
-console.log(window.navigator.language);
 
 inputHandler.setGame(game);
 inputHandler.onBackToMenu = () => {
   if (inGameplay) {
     inGameplay = false;
     screenManager.initialize();
+    renderBackgroundFrame();
+    stop();
   }
 }
 
 screenManager.onStart = () => {
   inGameplay = true;
   screenManager.hideScreens();
+  start();
 }
 
 screenManager.onFullscreen = () => {
   document.body.requestFullscreen();
+  renderBackgroundFrame();
 }
 
 window.onresize = setCanvasSize;
 
+function renderBackgroundFrame() {
+  game.run();
+  renderer.blur = true;
+  renderer.renderAreaObjects(game.getObjectsToRender());
+  renderer.blur = false;
+}
 
 function setCanvasSize() {
   canvas.width = window.innerWidth - 0;
   canvas.height = window.innerHeight - 0;
   game.gameArea.setSize(canvas.width, canvas.height);
+  renderBackgroundFrame();
 }
 
 function start() {
@@ -51,15 +61,11 @@ function stop() {
 }
 
 function run() {
-  if (inGameplay) {
-    game.run();
-    renderer.blur = false;
-  } else {
-    renderer.blur = true;
-  }
+  game.run();
   renderer.renderAreaObjects(game.getObjectsToRender());
+  
   animationRequestID = window.requestAnimationFrame(run);
 }
 
 setCanvasSize();
-start();
+renderBackgroundFrame();

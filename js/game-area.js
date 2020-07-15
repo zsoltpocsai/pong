@@ -62,7 +62,6 @@ class GameArea {
       }
 
       scoreCounter.build();
-      scoreCounter.setScore(0);
     }
 
     this.centerline.build(

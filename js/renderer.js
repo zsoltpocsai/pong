@@ -7,6 +7,12 @@ class Renderer {
   renderAreaObjects(objects) {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 
+    if (this.blur) {
+      this.ctx.filter = "blur(4px)";
+    } else {
+      this.ctx.filter = "none";
+    }
+
     for (let object of objects) {
       if (!object.render) continue;
       this.ctx.fillStyle = object.color;
@@ -16,12 +22,6 @@ class Renderer {
         object.width, 
         object.height
       );
-    }
-
-    if (this.blur) {
-      this.ctx.filter = "blur(4px)";
-    } else {
-      this.ctx.filter = "none";
     }
   }
 }
