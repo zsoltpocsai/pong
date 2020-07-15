@@ -21,7 +21,7 @@ class Paddle extends MovingObject {
   }
 
   moveNonLinear() {
-    //not in use
+    //currently not in use
     const speed = Math.min(this.MAXSPEED, 2 * this.time);
     this.setSpeed(speed);
     if (this.direction.x == 0 && this.direction.y == 0) {

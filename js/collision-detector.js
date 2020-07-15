@@ -1,4 +1,3 @@
-import Ball from "./ball.js";
 
 class CollisionDetector {
   overlap(o1, o2) {

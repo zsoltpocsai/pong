@@ -3,14 +3,17 @@ class InputHandler {
     this.game = null;
     this.player1 = null;
     this.player2 = null;
-    this.onPause = null;
+    
+    this.onBackToMenu = () => {};
   }
+
   setGame(game) {
     this.player1 = game.player1;
     this.player2 = game.player2;
     this.game = game;
     this.setUpInputHandlers();
   }
+
   setUpInputHandlers() {
     let players = [this.player1, this.player2];
 
@@ -46,11 +49,11 @@ class InputHandler {
     };
 
     window.onkeypress = (e) => {
-      if (e.key === "p" && this.onPause != null) {
-        this.onPause();
-      }
       if (e.key === " ") {
         this.game.launchBall();
+      }
+      if (e.key === "m") {
+        this.onBackToMenu();
       }
     }
   }

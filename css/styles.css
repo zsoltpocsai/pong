@@ -1,0 +1,101 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+}
+
+#canvas {
+    background-color: black;
+}
+
+.scr {
+    color: white;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    font-family: "Lucida Console", monospace;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.flexContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.top {
+    justify-content: top;
+}
+
+.title {
+    height: 25%;
+}
+
+.body {
+    height: 75%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 64px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+}
+
+table {
+    background-color: black;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+table .left {
+    text-align: left;
+}
+
+tr.white > td {
+    color: black;
+    background-color: white;
+}
+
+td {
+    padding: 10px;
+    width: 180px;
+}
+
+.btn {
+    display: block;
+    width: 180px;
+    height: 80px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 26px;
+    font-family: "Lucida Console", monospace;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}

@@ -1,9 +1,10 @@
 class Renderer {
   constructor(context2d) {
     this.ctx = context2d;
+    this.blur = false;
   }
 
-  render(objects) {
+  renderAreaObjects(objects) {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 
     for (let object of objects) {
@@ -16,12 +17,12 @@ class Renderer {
         object.height
       );
     }
-  }
 
-  renderScreen(screen) {
-    const image = screen.getImage();
-    const { width, height } = this.ctx.canvas;
-    this.ctx.drawImage(image, 0, 0, width, height);
+    if (this.blur) {
+      this.ctx.filter = "blur(4px)";
+    } else {
+      this.ctx.filter = "none";
+    }
   }
 }
 

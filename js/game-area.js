@@ -104,7 +104,6 @@ class GameArea {
         }
       }
     );
-
   }
 
   resetBall() {
@@ -155,17 +154,17 @@ class ScoreZone extends AreaObject {
 class Centerline {
   constructor() {
     this.tiles = [];
-    this.tileNumber = 10;
-    this.color = "gray";
+    this._tileNumber = 10;
+    this._color = "gray";
   }
 
   build(x, y, width, height) {
-    const tileHeight = height / (this.tileNumber * 2 - 1);
+    const tileHeight = height / (this._tileNumber * 2 - 1);
  
     this.tiles = [];
-    for (let i = 0; i < this.tileNumber; i++) {
+    for (let i = 0; i < this._tileNumber; i++) {
       let tile = new AreaObject(width, tileHeight);
-      tile.color = this.color;
+      tile.color = this._color;
       tile.position.x = x;
       tile.position.y = y + i * tileHeight * 2;
       this.tiles.push(tile);

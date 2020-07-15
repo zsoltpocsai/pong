@@ -28,7 +28,54 @@ class ScoreCounter {
     }
   }
 
-  setTilesInitial() {
+  setScore(value) {
+    if (value > 9) return;
+
+    this._setTilesInitial();
+    let pattern = [];
+    switch(value) {
+      case 0:
+        pattern = [0, 1, 2, 3, 5, 6, 8, 9, 11, 12, 13, 14];
+        break;
+      case 1:
+        pattern = [2, 5, 8, 11, 14];
+        break;
+      case 2:
+        pattern = [0, 1, 2, 5, 6, 7, 8, 9, 12, 13, 14];
+        break;
+      case 3:
+        pattern = [0, 1, 2, 5, 6, 7, 8, 11, 12, 13, 14];
+        break;
+      case 4:
+        pattern = [0, 2, 3, 5, 6, 7, 8, 11, 14];
+        break;
+      case 5:
+        pattern = [0, 1, 2, 3, 6, 7, 8, 11, 12, 13, 14];
+        break;
+      case 6:
+        pattern = [0, 1, 2, 3, 6, 7, 8, 9, 11, 12, 13, 14];
+        break;
+      case 7:
+        pattern = [0, 1, 2, 5, 8, 11, 14];
+        break;
+      case 8:
+        pattern = [0, 1, 2, 3, 5, 6, 7, 8, 9, 11, 12, 13, 14];
+        break;
+      case 9:
+        pattern = [0, 1, 2, 3, 5, 6, 7, 8, 11, 14];
+        break;
+      default:
+        pattern = [];
+        break;
+    }
+    this._lightUpTiles(pattern);
+  }
+
+  getTiles(){
+    return this.tilesArray;
+  }
+
+  _setTilesInitial() {
     let setting = {
       4: "black",
       10: "black",
@@ -43,54 +90,10 @@ class ScoreCounter {
     }
   }
 
-  lightUpTiles(tiles) {
+  _lightUpTiles(tiles) {
     for(const tile of tiles) {
       this.tilesArray[tile].color = "white";
     }
-  }
-
-  setScore(value) {
-    if (value > 9) return;
-
-    this.setTilesInitial();
-    switch(value) {
-      case 0:
-        this.lightUpTiles([0, 1, 2, 3, 5, 6, 8, 9, 11, 12, 13, 14]);
-        break;
-      case 1:
-        this.lightUpTiles([2, 5, 8, 11, 14]);
-        break;
-      case 2:
-        this.lightUpTiles([0, 1, 2, 5, 6, 7, 8, 9, 12, 13, 14]);
-        break;
-      case 3:
-        this.lightUpTiles([0, 1, 2, 5, 6, 7, 8, 11, 12, 13, 14]);
-        break;
-      case 4:
-        this.lightUpTiles([0, 2, 3, 5, 6, 7, 8, 11, 14]);
-        break;
-      case 5:
-        this.lightUpTiles([0, 1, 2, 3, 6, 7, 8, 11, 12, 13, 14]);
-        break;
-      case 6:
-        this.lightUpTiles([0, 1, 2, 3, 6, 7, 8, 9, 11, 12, 13, 14]);
-        break;
-      case 7:
-        this.lightUpTiles([0, 1, 2, 5, 8, 11, 14]);
-        break;
-      case 8:
-        this.lightUpTiles([0, 1, 2, 3, 5, 6, 7, 8, 9, 11, 12, 13, 14]);
-        break;
-      case 9:
-        this.lightUpTiles([0, 1, 2, 3, 5, 6, 7, 8, 11, 14]);
-        break;
-      default:
-        break;
-    }
-  }
-
-  getTiles(){
-    return this.tilesArray;
   }
 }
 

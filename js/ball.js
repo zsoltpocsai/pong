@@ -5,17 +5,17 @@ import Sound from "./sound.js";
 class Ball extends MovingObject {
   constructor() {
     super(15, 15);
-    this.spinRate = 0.5;
-    this.sound = Sound;
+    this._spinRate = 0.5;
+    this._sound = Sound;
   }
 
   bounce(overlap, object) {
     
     if (object instanceof Paddle) {
-      this.calculateSpin(object);
-      this.sound.playBounce1();
+      this._calculateSpin(object);
+      this._sound.playBounce1();
     } else {
-      this.sound.playBounce2();
+      this._sound.playBounce2();
     }
 
     let direction = Object.assign({}, this.direction);
@@ -27,9 +27,9 @@ class Ball extends MovingObject {
     this.setDirection(direction);
   }
   
-  calculateSpin(paddle) {
+  _calculateSpin(paddle) {
     let d = Object.assign({}, this.velocity);
-    d.y += paddle.velocity.y * this.spinRate;
+    d.y += paddle.velocity.y * this._spinRate;
     this.setDirection(d);
   }
 }
