@@ -19,10 +19,6 @@ class Game {
 
   run() {
     this.gameArea.update();
-    this.gameArea.setScoreCounters({
-      player1: this.player1.score,
-      player2: this.player2.score
-    });
   }
 
   launchBall() {
@@ -49,6 +45,14 @@ class Game {
     this.player2.score = 0;
   }
 
+  _registerScores() {
+    this.gameArea.setScoreCounters({
+      player1: this.player1.score,
+      player2: this.player2.score
+    });
+    this.sound.playScore();
+  }
+
   _setUpListeners() {
     this.gameArea.onScore = (paddle) => {
       this.gameArea.resetBall();
@@ -69,11 +73,11 @@ class Game {
         this.gameArea.toggleBallVisibility();
         paddle.flash(() => {
           this._resetScores();
-          this.sound.playScore();
+          this._registerScores();
           this.gameArea.toggleBallVisibility();
         });
       } else {
-        this.sound.playScore();
+        this._registerScores();
       }
     }
   }

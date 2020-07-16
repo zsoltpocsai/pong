@@ -9,6 +9,7 @@ class ScoreCounter {
     this.tilesArray = [];
     this.rows = 5;
     this.cols = 3;
+    this.score = 0;
   }
 
   build() {
@@ -26,10 +27,13 @@ class ScoreCounter {
         this.tilesArray.push(tile);
       }
     }
+    this.setScore(this.score);
   }
 
   setScore(value) {
     if (value > 9) return;
+
+    this.score = value;
 
     this._setTilesInitial();
     let pattern = [];
