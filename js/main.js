@@ -39,7 +39,6 @@ screenManager.onFullscreen = () => {
 window.onresize = setCanvasSize;
 
 function renderBackgroundFrame() {
-  game.run();
   renderer.blur = true;
   renderer.renderAreaObjects(game.getObjectsToRender());
   renderer.blur = false;
