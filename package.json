@@ -1,17 +1,10 @@
 {
   "name": "pong",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
   "dependencies": {
-    "http-server": "^0.12.3"
+    "http-server": "14.1.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "http-server",
-    "dev": "http-server"
-  },
-  "keywords": [],
-  "author": "Zsolt Pocsai",
-  "license": "ISC"
+    "start": "http-server"
+  }
 }
